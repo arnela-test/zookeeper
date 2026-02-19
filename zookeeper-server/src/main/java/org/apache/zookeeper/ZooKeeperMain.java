@@ -431,6 +431,11 @@ public class ZooKeeperMain {
             return false;
         }
 
+        if (zk == null || !zk.getState().isAlive()) {
+            System.out.println("Not connected");
+            return false;
+        }
+
         // execute from commandMap
         CliCommand cliCmd = commandMapCli.get(cmd);
         if (cliCmd != null) {
