@@ -3078,6 +3078,12 @@ public class ZooKeeper implements AutoCloseable {
         }
     }
 
+    private void validateACL(List<ACL> acl) throws KeeperException.InvalidACLException {
+        if (acl == null || acl.isEmpty() || acl.contains(null)) {
+            throw new KeeperException.InvalidACLException();
+        }
+    }
+
     /**
      * Gives all authentication information added into the current session.
      *
