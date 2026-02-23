@@ -54,4 +54,10 @@ class ZooKeeperTestable implements Testable {
         clientCnxn.sendThread.testableCloseSocket();
     }
 
+    @Override
+    public void closeSocket() throws IOException {
+        LOG.info("closeSocket() called");
+        clientCnxn.sendThread.testableCloseSocket();
+    }
+
 }
