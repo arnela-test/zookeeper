@@ -454,6 +454,15 @@ public class ZooKeeperMain {
             usage();
         }
         return watch;
+
+        CliCommand cliCmd = commandMapCli.get(cmd);
+        if (cliCmd != null) {
+            cliCmd.setZk(zk);
+            watch = cliCmd.parse(args).exec();
+        } else if (!commandMap.containsKey(cmd)) {
+            usage();
+        }
+        return watch;
     }
 
 }
