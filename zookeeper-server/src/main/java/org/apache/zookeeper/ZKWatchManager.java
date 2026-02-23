@@ -458,5 +458,13 @@ class ZKWatchManager implements ClientWatchManager {
                 addTo(persistentRecursiveWatches.get(path), result);
             }
         }
+        if (type == Watcher.Event.EventType.NodeChildrenChanged) {
+            return;
+        }
+        synchronized (persistentRecursiveWatches) {
+            for (String path : PathParentIterator.forAll(clientPath).asIterable()) {
+                addTo(persistentRecursiveWatches.get(path), result);
+            }
+        }
     }
 }
