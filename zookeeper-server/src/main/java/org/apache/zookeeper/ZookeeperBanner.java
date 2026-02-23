@@ -42,5 +42,10 @@ public class ZookeeperBanner {
             log.info(line);
         }
     }
+    public static void printBanner(Logger log) {
+        for (String line : BANNER) {
+            log.info(line);
+        }
+    }
 
 }
