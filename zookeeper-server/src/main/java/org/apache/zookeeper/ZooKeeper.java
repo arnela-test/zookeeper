@@ -3105,4 +3105,12 @@ public class ZooKeeper implements AutoCloseable {
         return response.getClientInfo();
     }
 
+    public synchronized List<ClientInfo> whoAmI() throws InterruptedException {
+        RequestHeader h = new RequestHeader();
+        h.setType(ZooDefs.OpCode.whoAmI);
+        WhoAmIResponse response = new WhoAmIResponse();
+        cnxn.submitRequest(h, null, response, null);
+        return response.getClientInfo();
+    }
+
 }
