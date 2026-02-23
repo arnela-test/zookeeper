@@ -161,4 +161,11 @@ public class ZooDefs {
         int persistentRecursive = 1;  // matches AddWatchMode.PERSISTENT_RECURSIVE
     }
 
+    @InterfaceAudience.Public
+    public interface AddWatchModes {
+        int persistent = 0; // matches AddWatchMode.PERSISTENT
+
+        int persistentRecursive = 1;  // matches AddWatchMode.PERSISTENT_RECURSIVE
+    }
+
 }
