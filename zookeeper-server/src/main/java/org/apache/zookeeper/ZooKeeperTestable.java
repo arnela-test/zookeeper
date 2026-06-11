@@ -49,6 +49,12 @@ class ZooKeeperTestable implements Testable {
     }
 
     @Override
+    public void queueEvent(WatchedEvent event) {
+        LOG.info("queueEvent() called: {}", event);
+        clientCnxn.eventThread.queueEvent(event);
+    }
+
+    @Override
     public void closeSocket() throws IOException {
         LOG.info("closeSocket() called");
         clientCnxn.sendThread.testableCloseSocket();
