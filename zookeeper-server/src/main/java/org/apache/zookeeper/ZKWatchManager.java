@@ -90,6 +90,18 @@ class ZKWatchManager implements ClientWatchManager {
         }
     }
 
+    List<String> getPersistentWatchList() {
+        synchronized (persistentWatches) {
+            return new ArrayList<>(persistentWatches.keySet());
+        }
+    }
+
+    List<String> getPersistentRecursiveWatchList() {
+        synchronized (persistentRecursiveWatches) {
+            return new ArrayList<>(persistentRecursiveWatches.keySet());
+        }
+    }
+
     Map<String, Set<Watcher>> getDataWatches() {
         return dataWatches;
     }
